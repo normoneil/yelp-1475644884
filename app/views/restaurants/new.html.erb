@@ -1,0 +1,127 @@
+<!-- Validation failure messages -->
+<% if @restaurant.errors.any? %>
+  <% @restaurant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Restaurant</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_restaurant" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @restaurant.name %>">
+      </div>
+
+      <!-- Label and input for street -->
+      <div class="form-group">
+        <label for="street" class="control-label">
+          Street
+        </label>
+
+        <input type="text" id="street" name="street" placeholder="Street" class="form-control" value="<%= @restaurant.street %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @restaurant.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @restaurant.state %>">
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="control-label">
+          Zip
+        </label>
+
+        <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @restaurant.zip %>">
+      </div>
+
+      <!-- Label and input for neighborhood -->
+      <div class="form-group">
+        <label for="neighborhood" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="<%= @restaurant.neighborhood %>">
+      </div>
+
+      <!-- Label and input for average_stars -->
+      <div class="form-group">
+        <label for="average_stars" class="control-label">
+          Average stars
+        </label>
+
+        <input type="text" id="average_stars" name="average_stars" placeholder="Average stars" class="form-control" value="<%= @restaurant.average_stars %>">
+      </div>
+
+      <!-- Label and input for total_reviews -->
+      <div class="form-group">
+        <label for="total_reviews" class="control-label">
+          Total reviews
+        </label>
+
+        <input type="text" id="total_reviews" name="total_reviews" placeholder="Total reviews" class="form-control" value="<%= @restaurant.total_reviews %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @restaurant.price %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @restaurant.description %>">
+      </div>
+
+      <!-- Label and input for cover_image -->
+      <div class="form-group">
+        <label for="cover_image" class="control-label">
+          Cover image
+        </label>
+
+        <input type="text" id="cover_image" name="cover_image" placeholder="Cover image" class="form-control" value="<%= @restaurant.cover_image %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Restaurant
+      </button>
+      or
+      <a href="/restaurants">Cancel</a>
+    </form>
+  </div>
+</div>
